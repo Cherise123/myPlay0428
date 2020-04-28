@@ -1,3 +1,76 @@
-<html>
-测试
-</html>
+<template>
+    <div class="maggie_index">
+        <div class="top_bg_box">
+            <div class="mag_top_nav">顶部导航条</div>
+            <div class="mag_top_bg">
+                <div class="mag_center_info">
+                    <div class="mag_bg_title">新媒体代运营</div>
+                    <div class="mag_link_txt">这是一串蓝色的字，可能是个链接</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+
+    },
+    mounted() {
+
+    },
+    created() {
+
+    },
+    components: {
+    },
+    computed: {
+
+    },
+}
+</script>
+<style lang="less">
+.maggie_index {
+    width: 100%;
+    height: 100%;
+    .top_bg_box {
+        width: 100%;
+        overflow: hidden;
+        background: #000;
+        color: #fff;
+        .mag_top_nav {
+            height: 50px;
+            line-height: 50px;
+        }
+        .mag_top_bg {
+            position: relative;
+            vertical-align: middle;
+            width: 100%;
+            height: 300px;
+            text-align: center;
+            .mag_center_info {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                .mag_bg_title {
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    font-size: 20px;
+                }
+                .mag_link_txt {
+                    cursor: pointer;
+                    color: skyblue;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+</style>
