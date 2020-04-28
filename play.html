@@ -1,6 +1,6 @@
 <template>
     <div class="maggie_index">
-        <div class="top_bg_box">
+        <div class="mag_top_box">
             <div class="mag_top_nav">顶部导航条</div>
             <div class="mag_top_bg">
                 <div class="mag_center_info">
@@ -9,7 +9,89 @@
                 </div>
             </div>
         </div>
-
+        <div class="mag_main_content">
+            <div class="mag_content_box mag_top_content">
+                <div class="mag_title">想做新媒体？却发现困难重重？</div>
+                <el-row :gutter="20">
+                    <el-col :span="8">
+                        <div class="grid-content">
+                            <div class="mag_item_top">
+                                <img src="../../assets/images/AppOperating/no-permision.png"
+                                     alt="">
+                            </div>
+                            <div class="mag_img_below">缺乏新思维</div>
+                        </div>
+                    </el-col>
+                    <el-col :span="8">
+                        <div class="grid-content">
+                            <div class="mag_item_top">
+                                <div class="mag_info_title">缺乏好团队</div>
+                                <div class="mag_info_txt">这是下方的一行小字，用来描述的吧</div>
+                            </div>
+                            <div class="mag_img_below"></div>
+                        </div>
+                    </el-col>
+                    <el-col :span="8">
+                        <div class="grid-content">
+                            <div class="mag_item_top">
+                                <img src="../../assets/images/AppOperating/no-permision.png"
+                                     alt="">
+                            </div>
+                            <div class="mag_img_below">缺乏新思维</div>
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+            <hr class="mag_line" />
+            <div class="mag_content_box mag_bottom_content">
+                <div class="mag_title">丰富的新媒体营销，让流量来的更猛些</div>
+                <el-row :gutter="10">
+                    <el-col :span="12">
+                        <div class="grid-content">
+                            <img src="../../assets/images/AppOperating/no-permision.png"
+                                 alt="">
+                        </div>
+                    </el-col>
+                    <el-col :span="12">
+                        <div class="grid-content">
+                            <img src="../../assets/images/AppOperating/no-permision.png"
+                                 alt="">
+                        </div>
+                    </el-col>
+                </el-row>
+                <el-row :gutter="10">
+                    <el-col :span="6">
+                        <div class="grid-content">
+                            <img src="../../assets/images/AppOperating/no-permision.png"
+                                 alt="">
+                        </div>
+                    </el-col>
+                    <el-col :span="6">
+                        <div class="grid-content">
+                            <img src="../../assets/images/AppOperating/no-permision.png"
+                                 alt="">
+                        </div>
+                    </el-col>
+                    <el-col :span="6">
+                        <div class="grid-content">
+                            <img src="../../assets/images/AppOperating/no-permision.png"
+                                 alt="">
+                        </div>
+                    </el-col>
+                    <el-col :span="6">
+                        <div class="grid-content">
+                            <img src="../../assets/images/AppOperating/no-permision.png"
+                                 alt="">
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+        </div>
+        <div class="mag_footer_box">
+            <div class="mag_footer_content">
+                <div class="mag_footer_title"></div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -39,10 +121,13 @@ export default {
 .maggie_index {
     width: 100%;
     height: 100%;
-    .top_bg_box {
+    .mag_top_box {
         width: 100%;
         overflow: hidden;
         background: #000;
+        background: #000 url(../../assets/images/AppOperating/no-permision.png)
+            no-repeat center center;
+        background-size: 100% 100%;
         color: #fff;
         .mag_top_nav {
             height: 50px;
@@ -52,7 +137,7 @@ export default {
             position: relative;
             vertical-align: middle;
             width: 100%;
-            height: 300px;
+            height: 400px;
             text-align: center;
             .mag_center_info {
                 position: absolute;
@@ -70,6 +155,82 @@ export default {
                     font-size: 12px;
                 }
             }
+        }
+    }
+    .mag_main_content {
+        width: 100%;
+        min-height: 500px;
+        .mag_content_box {
+            width: 70%;
+            margin: 50px auto;
+            .mag_title {
+                display: inline-block;
+                margin-bottom: 40px;
+                font-size: 16px;
+            }
+            .grid-content {
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .mag_top_content {
+            .grid-content {
+                transition: all 0.3s;
+                box-shadow: 1px 1px 6px -1px #ccc;
+                &:hover {
+                    box-shadow: 2px 2px 14px 1px #ccc;
+                }
+                .mag_item_top {
+                    width: 100%;
+                    height: 150px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-bottom: 1px solid #eee;
+                    }
+                    .mag_info_title {
+                        padding: 40px 0 10px 0;
+                        font-size: 14px;
+                    }
+                    .mag_info_txt {
+                        padding: 0 30%;
+                        color: #333;
+                        font-size: 12px;
+                    }
+                }
+                .mag_img_below {
+                    width: 100%;
+                    height: 35px;
+                    line-height: 35px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .mag_line {
+            width: 100%;
+            border: 1px solid #eee;
+        }
+        .mag_bottom_content {
+            .el-row {
+                margin-bottom: 10px;
+                .grid-content {
+                    border: 1px solid #eee;
+                }
+            }
+        }
+    }
+    .mag_footer_box {
+        width: 100%;
+        padding: 50px 0;
+        background: #000;
+        .mag_footer_content {
+            width: 50%;
+            min-height: 300px;
+            margin: 0 auto;
+            border: 1px solid red;
         }
     }
 }
