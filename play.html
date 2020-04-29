@@ -1,60 +1,84 @@
 <template>
     <div class="mag_index">
         <div class="mag_top_box">
-            <div class="mag_top_nav">顶部导航条</div>
+            <div class="mag_top_nav">
+                <span class="mag_left_logo"
+                      :style="{'background-image': `url(${footerContent.titleIcon})`}"></span>
+                <el-menu :default-active="activeIndex2"
+                         class="el-menu-demo"
+                         mode="horizontal"
+                         @select="handleSelect"
+                         background-color="transparent"
+                         text-color="#fff"
+                         active-text-color="skyblue">
+                    <el-menu-item index="1">处理中心</el-menu-item>
+                    <el-menu-item index="2">我的工作台</el-menu-item>
+                    <el-menu-item index="3">消息中心</el-menu-item>
+                    <el-menu-item index="4">订单管理</el-menu-item>
+                </el-menu>
+            </div>
             <div class="mag_top_bg">
                 <div class="mag_center_info">
-                    <div class="mag_bg_title">新媒体代运营</div>
-                    <div class="mag_link_txt">这是一串蓝色的字，可能是个链接</div>
+                    <div class="mag_bg_title">{{txtInTopNav.title}}</div>
+                    <div class="mag_link_txt">{{txtInTopNav.smallTxt}}</div>
                 </div>
             </div>
         </div>
         <div class="mag_main_content">
             <div class="mag_content_box mag_top_content">
-                <div class="mag_title">想做新媒体？却发现困难重重？</div>
+                <div class="mag_title">{{mainContent.title1}}</div>
                 <el-row :gutter="20">
                     <el-col :span="8">
                         <div class="grid-content">
-                            <div class="mag_item_top">
-                                <img src="../../assets/images/AppOperating/no-permision.png"
+                            <div class="mag_scroll_box">
+                                <img :src="mainContent.slideBox1.pic"
                                      alt="">
+                                <div class="mag_img_below">
+                                    <div class="mag_info_title">{{mainContent.slideBox1.title}}</div>
+                                    <div class="mag_info_txt">{{mainContent.slideBox1.intro}}</div>
+                                </div>
                             </div>
-                            <div class="mag_img_below">缺乏新思维</div>
                         </div>
                     </el-col>
                     <el-col :span="8">
                         <div class="grid-content">
-                            <div class="mag_item_top">
-                                <div class="mag_info_title">缺乏好团队</div>
-                                <div class="mag_info_txt">这是下方的一行小字，用来描述的吧</div>
+                            <div class="mag_scroll_box">
+                                <img :src="mainContent.slideBox2.pic"
+                                     alt="">
+                                <div class="mag_img_below">
+                                    <div class="mag_info_title">{{mainContent.slideBox2.title}}</div>
+                                    <div class="mag_info_txt">{{mainContent.slideBox2.intro}}</div>
+                                </div>
                             </div>
-                            <div class="mag_img_below"></div>
                         </div>
                     </el-col>
                     <el-col :span="8">
                         <div class="grid-content">
-                            <div class="mag_item_top">
-                                <img src="../../assets/images/AppOperating/no-permision.png"
+                            <div class="mag_scroll_box">
+                                <img :src="mainContent.slideBox3.pic"
                                      alt="">
+                                <div class="mag_img_below">
+                                    <div class="mag_info_title">{{mainContent.slideBox3.title}}</div>
+                                    <div class="mag_info_txt">{{mainContent.slideBox3.intro}}</div>
+                                </div>
                             </div>
-                            <div class="mag_img_below">缺乏新思维</div>
                         </div>
                     </el-col>
                 </el-row>
             </div>
             <hr class="mag_line" />
             <div class="mag_content_box mag_bottom_content">
-                <div class="mag_title">丰富的新媒体营销，让流量来的更猛些</div>
+                <div class="mag_title">{{mainContent.title2}}</div>
                 <el-row :gutter="10">
                     <el-col :span="12">
                         <div class="grid-content">
-                            <img src="../../assets/images/AppOperating/no-permision.png"
+                            <img :src="mainContent.pic1"
                                  alt="">
                         </div>
                     </el-col>
                     <el-col :span="12">
                         <div class="grid-content">
-                            <img src="../../assets/images/AppOperating/no-permision.png"
+                            <img :src="mainContent.pic2"
                                  alt="">
                         </div>
                     </el-col>
@@ -62,25 +86,25 @@
                 <el-row :gutter="10">
                     <el-col :span="6">
                         <div class="grid-content">
-                            <img src="../../assets/images/AppOperating/no-permision.png"
+                            <img :src="mainContent.pic3"
                                  alt="">
                         </div>
                     </el-col>
                     <el-col :span="6">
                         <div class="grid-content">
-                            <img src="../../assets/images/AppOperating/no-permision.png"
+                            <img :src="mainContent.pic4"
                                  alt="">
                         </div>
                     </el-col>
                     <el-col :span="6">
                         <div class="grid-content">
-                            <img src="../../assets/images/AppOperating/no-permision.png"
+                            <img :src="mainContent.pic5"
                                  alt="">
                         </div>
                     </el-col>
                     <el-col :span="6">
                         <div class="grid-content">
-                            <img src="../../assets/images/AppOperating/no-permision.png"
+                            <img :src="mainContent.pic6"
                                  alt="">
                         </div>
                     </el-col>
@@ -90,18 +114,19 @@
         <div class="mag_footer_box">
             <div class="mag_footer_content">
                 <img class="mag_title_icon"
-                     src="../../assets/images/AppOperating/no-permision.png"
+                     :src="footerContent.titleIcon"
                      alt="">
                 <div class="mag_footer_info">
                     <div class="mag_left_box">
-                        <p>地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                        <p>联系电话：13333333333</p>
-                        <p>地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxggggggggggggggg</p>
-                        <p>地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkk</p>
+                        <p>{{footerContent.info1}}</p>
+                        <p>{{footerContent.info2}}</p>
+                        <p>{{footerContent.info3}}</p>
+                        <p>{{footerContent.info4}}</p>
                         <el-button class="mag_btn"
-                                   size="small">联系我们</el-button>
+                                   size="small">{{footerContent.btnTxt}}</el-button>
                     </div>
-                    <div class="mag_right_box"></div>
+                    <div class="mag_right_box"
+                         :style="{'background-image': `url(${footerContent.weChatIcon})`}"></div>
                 </div>
             </div>
         </div>
@@ -111,11 +136,52 @@
 export default {
     data() {
         return {
+            txtInTopNav: {
+                title: '新媒体代运营',
+                smallTxt: '这是一段蓝色的字，可能是个链接',
+            },
+            mainContent: {
+                title1: '想做新媒体？却发现困难重重？',
+                slideBox1: {
+                    pic: require('../../assets/images/AppOperating/no-permision.png'),
+                    title: '缺乏新思维',
+                    intro: '标题下方有一行小字，用来详细描述的'
+                },
+                slideBox2: {
+                    pic: require('../../assets/images/AppOperating/no-permision.png'),
+                    title: '缺乏好团队',
+                    intro: '标题下方有一行小字，用来详细描述的'
+                },
+                slideBox3: {
+                    pic: require('../../assets/images/AppOperating/no-permision.png'),
+                    title: '缺乏新策略',
+                    intro: '标题下方有一行小字，用来详细描述的'
+                },
+                title2: '丰富的新媒体营销，让流量来的更猛些',
+                pic1: require('../../assets/images/AppOperating/no-permision.png'),
+                pic2: require('../../assets/images/AppOperating/no-permision.png'),
+                pic3: require('../../assets/images/AppOperating/no-permision.png'),
+                pic4: require('../../assets/images/AppOperating/no-permision.png'),
+                pic5: require('../../assets/images/AppOperating/no-permision.png'),
+                pic6: require('../../assets/images/AppOperating/no-permision.png'),
+            },
+            footerContent: {
+                titleIcon: require('../../assets/images/logo.png'),
+                info1: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+                info2: '联系电话：13333333333',
+                info3: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxggggggggggggggg',
+                info4: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkk',
+                btnTxt: '联系我们',
+                weChatIcon: require('../../assets/images/AppOperating/no-permision.png')
+            },
 
+            activeIndex2: '1'
         }
     },
     methods: {
-
+        handleSelect(key, keyPath) {
+            console.log(key, keyPath);
+        }
     },
     mounted() {
 
@@ -143,8 +209,30 @@ export default {
         background-size: 100% 100%;
         color: #fff;
         .mag_top_nav {
-            height: 50px;
-            line-height: 50px;
+            width: 70%;
+            margin: 0 auto;
+            overflow: hidden;
+            .mag_left_logo {
+                float: left;
+                height: 50px;
+                width: 120px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 100% 100%;
+            }
+            .el-menu-demo {
+                float: right;
+            }
+            .el-menu--horizontal > .el-menu-item {
+                height: 50px;
+                line-height: 50px;
+                &:hover {
+                    background: transparent !important;
+                }
+            }
+            .el-menu.el-menu--horizontal {
+                border-bottom: 0;
+            }
         }
         .mag_top_bg {
             position: relative;
@@ -191,34 +279,55 @@ export default {
         }
         .mag_top_content {
             .grid-content {
+                position: relative;
+                height: 185px;
                 transition: all 0.3s;
-                box-shadow: 1px 1px 6px -1px #ccc;
-                &:hover {
-                    box-shadow: 2px 2px 14px 1px #ccc;
-                }
-                .mag_item_top {
+                border: 1px solid #eee;
+                box-shadow: 5px 5px 10px 2px #eee;
+                .mag_scroll_box {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
-                    height: 150px;
+                    transition: all 0.3s;
                     img {
                         width: 100%;
-                        height: 100%;
+                        height: 150px;
                         border-bottom: 1px solid #eee;
+                        .mag_info_title {
+                            padding: 40px 0 10px 0;
+                            font-size: 14px;
+                        }
+                        .mag_info_txt {
+                            padding: 0 26%;
+                            color: #333;
+                            font-size: 12px;
+                        }
                     }
-                    .mag_info_title {
-                        padding: 40px 0 10px 0;
+                    .mag_img_below {
+                        width: 100%;
+                        height: 35px;
                         font-size: 14px;
-                    }
-                    .mag_info_txt {
-                        padding: 0 30%;
-                        color: #333;
-                        font-size: 12px;
+                        .mag_info_title {
+                            line-height: 35px;
+                            font-size: 14px;
+                        }
+                        .mag_info_txt {
+                            height: 150px;
+                            padding: 0 30%;
+                            color: #333;
+                            font-size: 12px;
+                        }
                     }
                 }
-                .mag_img_below {
-                    width: 100%;
-                    height: 35px;
-                    line-height: 35px;
-                    font-size: 14px;
+                &:hover {
+                    .mag_scroll_box {
+                        position: absolute;
+                        top: -150px;
+                        .mag_img_below {
+                            padding-top: 30px;
+                        }
+                    }
                 }
             }
         }
@@ -230,7 +339,11 @@ export default {
             .el-row {
                 margin-bottom: 10px;
                 .grid-content {
+                    transition: all 0.3s;
                     border: 1px solid #eee;
+                    &:hover {
+                        box-shadow: 2px 2px 14px 1px #ccc;
+                    }
                 }
             }
         }
@@ -273,7 +386,9 @@ export default {
                     float: right;
                     width: 30%;
                     min-height: 160px;
-                    background: skyblue;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: 100% 100%;
                 }
             }
         }
