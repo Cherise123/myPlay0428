@@ -1,10 +1,11 @@
 <template>
     <div class="mag_index">
-        <div class="mag_top_box">
+        <div class="mag_top_box"
+             :style="{'background': `#000 url(${txtInTopNav.bgPic}) center center/100% 100% no-repeat`}">
             <div class="common_width mag_top_nav">
                 <span class="mag_left_logo"
-                      :style="{'background-image': `url(${footerContent.titleIcon})`}"></span>
-                <el-menu :default-active="activeIndex2"
+                      :style="{'background': `url(${footerContent.titleIcon}) center center/100% 100% no-repeat`}"></span>
+                <el-menu :default-active="activeIndex"
                          class="el-menu-demo"
                          mode="horizontal"
                          @select="handleSelect"
@@ -126,7 +127,7 @@
                                    size="small">{{footerContent.btnTxt}}</el-button>
                     </div>
                     <div class="mag_right_box"
-                         :style="{'background-image': `url(${footerContent.weChatIcon})`}"></div>
+                         :style="{'background': `url(${footerContent.weChatIcon}) center center/100% 100% no-repeat`}"></div>
                 </div>
             </div>
         </div>
@@ -139,6 +140,7 @@ export default {
             txtInTopNav: {
                 title: '新媒体代运营',
                 smallTxt: '这是一段蓝色的字，可能是个链接',
+                bgPic: require('../../assets/images/AppOperating/no-permision.png')
             },
             mainContent: {
                 title1: '想做新媒体？却发现困难重重？',
@@ -166,7 +168,7 @@ export default {
                 pic6: require('../../assets/images/AppOperating/no-permision.png'),
             },
             footerContent: {
-                titleIcon: require('../../assets/images/logo.png'),
+                titleIcon: require('../../assets/images/AppOperating/no-permision.png'),
                 info1: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
                 info2: '联系电话：13333333333',
                 info3: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxggggggggggggggg',
@@ -174,8 +176,7 @@ export default {
                 btnTxt: '联系我们',
                 weChatIcon: require('../../assets/images/AppOperating/no-permision.png')
             },
-
-            activeIndex2: '1'
+            activeIndex: '1'
         }
     },
     methods: {
@@ -206,10 +207,6 @@ export default {
     .mag_top_box {
         width: 100%;
         overflow: hidden;
-        background: #000;
-        background: #000 url(../../assets/images/AppOperating/no-permision.png)
-            no-repeat center center;
-        background-size: 100% 100%;
         color: #fff;
         .mag_top_nav {
             margin: 0 auto;
@@ -218,9 +215,6 @@ export default {
                 float: left;
                 height: 50px;
                 width: 120px;
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: 100% 100%;
             }
             .el-menu-demo {
                 float: right;
@@ -387,9 +381,6 @@ export default {
                     float: right;
                     width: 30%;
                     min-height: 160px;
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                    background-size: 100% 100%;
                 }
             }
         }
