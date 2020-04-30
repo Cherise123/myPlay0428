@@ -1,0 +1,399 @@
+<template>
+    <div class="mag_index">
+        <div class="mag_top_box"
+             :style="{'background': `#000 url(${txtInTopNav.bgPic}) center center/100% 100% no-repeat`}">
+            <div class="common_width mag_top_nav">
+                <span class="mag_left_logo"
+                      :style="{'background': `url(${footerContent.titleIcon}) center center/100% 100% no-repeat`}"></span>
+                <el-menu :default-active="activeIndex"
+                         class="el-menu-demo"
+                         mode="horizontal"
+                         @select="handleSelect"
+                         background-color="transparent"
+                         text-color="#fff"
+                         active-text-color="#409EFF">
+                    <el-menu-item index="1">处理中心</el-menu-item>
+                    <el-menu-item index="2">我的工作台</el-menu-item>
+                    <el-menu-item index="3">消息中心</el-menu-item>
+                    <el-menu-item index="4">订单管理</el-menu-item>
+                </el-menu>
+            </div>
+            <div class="mag_top_bg">
+                <div class="mag_center_info">
+                    <div class="mag_bg_title">{{txtInTopNav.title}}</div>
+                    <div class="mag_link_txt">{{txtInTopNav.smallTxt}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="mag_main_content">
+            <div class="common_width mag_content_box mag_top_content">
+                <div class="mag_title">{{mainContent.title1}}</div>
+                <el-row>
+                    <el-col :span="12">
+                        <div class="grid-content">
+                            <img :src="mainContent.pic1"
+                                 alt="">
+                        </div>
+                    </el-col>
+                    <el-col :span="12">
+                        <div class="grid-content pl30 pt40">
+                            <div class="mag_big_title">{{mainContent.infoBox1.bigTitle}}</div>
+                            <div class="mag_small_title">{{mainContent.infoBox1.smallTitle}}</div>
+                            <div class="mag_info_txt">{{mainContent.infoBox1.longTxt}}</div>
+                        </div>
+                    </el-col>
+                </el-row>
+                <el-row>
+                    <el-col :span="12">
+                        <div class="grid-content pt40 pr30">
+                            <div class="mag_big_title">{{mainContent.infoBox1.bigTitle}}</div>
+                            <div class="mag_small_title">{{mainContent.infoBox1.smallTitle}}</div>
+                            <div class="mag_info_txt">{{mainContent.infoBox1.longTxt}}</div>
+                        </div>
+                    </el-col>
+                    <el-col :span="12">
+                        <div class="grid-content">
+                            <img :src="mainContent.pic1"
+                                 alt="">
+                        </div>
+                    </el-col>
+                </el-row>
+                <el-row>
+                    <el-col :span="12">
+                        <div class="grid-content">
+                            <img :src="mainContent.pic1"
+                                 alt="">
+                        </div>
+                    </el-col>
+                    <el-col :span="12">
+                        <div class="grid-content pl30 pt40">
+                            <div class="mag_big_title">{{mainContent.infoBox1.bigTitle}}</div>
+                            <div class="mag_small_title">{{mainContent.infoBox1.smallTitle}}</div>
+                            <div class="mag_info_txt">{{mainContent.infoBox1.longTxt}}</div>
+                        </div>
+                    </el-col>
+                </el-row>
+                <el-row>
+                    <el-col :span="12">
+                        <div class="grid-content pt40 pr30">
+                            <div class="mag_big_title">{{mainContent.infoBox1.bigTitle}}</div>
+                            <div class="mag_small_title">{{mainContent.infoBox1.smallTitle}}</div>
+                            <div class="mag_info_txt">{{mainContent.infoBox1.longTxt}}</div>
+                        </div>
+                    </el-col>
+                    <el-col :span="12">
+                        <div class="grid-content">
+                            <img :src="mainContent.pic1"
+                                 alt="">
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+            <div class="mag_content_box mag_bottom_content">
+                <div class="common_width mag_real_content">
+                    <div class="mag_title">{{mainContent.title2}}</div>
+                    <el-row :gutter="50">
+                        <el-col :span="8">
+                            <div class="grid-content mag_intro_item">
+                                <img :src="mainContent.iconInfo1.icon"
+                                     alt="">
+                                <div class="mag_item_title">{{mainContent.iconInfo1.title}}</div>
+                                <div class="mag_item_intro">{{mainContent.iconInfo1.txt}}</div>
+                            </div>
+                        </el-col>
+                        <el-col :span="8">
+                            <div class="grid-content mag_intro_item">
+                                <img :src="mainContent.iconInfo1.icon"
+                                     alt="">
+                                <div class="mag_item_title">{{mainContent.iconInfo1.title}}</div>
+                                <div class="mag_item_intro">{{mainContent.iconInfo1.txt}}</div>
+                            </div>
+                        </el-col>
+                        <el-col :span="8">
+                            <div class="grid-content mag_intro_item">
+                                <img :src="mainContent.iconInfo1.icon"
+                                     alt="">
+                                <div class="mag_item_title">{{mainContent.iconInfo1.title}}</div>
+                                <div class="mag_item_intro">{{mainContent.iconInfo1.txt}}</div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+        </div>
+        <div class="mag_footer_box">
+            <div class="mag_footer_content">
+                <img class="mag_title_icon"
+                     :src="footerContent.titleIcon"
+                     alt="">
+                <div class="mag_footer_info">
+                    <div class="mag_left_box">
+                        <p>{{footerContent.info1}}</p>
+                        <p>{{footerContent.info2}}</p>
+                        <p>{{footerContent.info3}}</p>
+                        <p>{{footerContent.info4}}</p>
+                        <el-button class="mag_btn"
+                                   size="small">{{footerContent.btnTxt}}</el-button>
+                    </div>
+                    <div class="mag_right_box"
+                         :style="{'background': `url(${footerContent.weChatIcon}) center center/100% 100% no-repeat`}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            txtInTopNav: {
+                title: '新媒体代运营',
+                smallTxt: '这是一段蓝色的字，可能是个链接',
+                bgPic: require('../../assets/images/AppOperating/no-permision.png')
+            },
+            mainContent: {
+                title1: '成功案例场景',
+                pic1: require('../../assets/images/1111.gif'),
+                pic2: require('../../assets/images/1111.gif'),
+                pic3: require('../../assets/images/1111.gif'),
+                pic4: require('../../assets/images/1111.gif'),
+                infoBox1: {
+                    bigTitle: '女装精品',
+                    smallTitle: '这里这里这里这里这里这里这里',
+                    longTxt: '这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里'
+                },
+                infoBox2: {
+                    bigTitle: '女装精品',
+                    smallTitle: '这里这里这里这里这里这里这里',
+                    longTxt: '这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里'
+                },
+                infoBox3: {
+                    bigTitle: '女装精品',
+                    smallTitle: '这里这里这里这里这里这里这里',
+                    longTxt: '这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里'
+                },
+                infoBox4: {
+                    bigTitle: '女装精品',
+                    smallTitle: '这里这里这里这里这里这里这里',
+                    longTxt: '这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里这里'
+                },
+                title2: '核心优势',
+                iconInfo1: {
+                    icon: require('../../assets/images/1111.gif'),
+                    title: '客服管理',
+                    txt: '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字'
+                },
+                iconInfo2: {
+                    icon: require('../../assets/images/1111.gif'),
+                    title: '客服管理',
+                    txt: '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字'
+                },
+                iconInfo3: {
+                    icon: require('../../assets/images/1111.gif'),
+                    title: '客服管理',
+                    txt: '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字'
+                },
+            },
+            footerContent: {
+                titleIcon: require('../../assets/images/AppOperating/no-permision.png'),
+                info1: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+                info2: '联系电话：13333333333',
+                info3: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxggggggggggggggg',
+                info4: '地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxkkkkkkkkkkkkkkkkkkkkkk',
+                btnTxt: '联系我们',
+                weChatIcon: require('../../assets/images/AppOperating/no-permision.png')
+            },
+            activeIndex: '1'
+        }
+    },
+    methods: {
+        handleSelect(key, keyPath) {
+            console.log(key, keyPath);
+        }
+    },
+    mounted() {
+
+    },
+    created() {
+
+    },
+    components: {
+    },
+    computed: {
+
+    },
+}
+</script>
+<style lang="less">
+.mag_index {
+    width: 100%;
+    height: 100%;
+    .common_width {
+        width: 61%;
+    }
+    .mag_top_box {
+        width: 100%;
+        overflow: hidden;
+        color: #fff;
+        .mag_top_nav {
+            margin: 0 auto;
+            overflow: hidden;
+            .mag_left_logo {
+                float: left;
+                height: 44px;
+                width: 120px;
+                margin-top: 10px;
+            }
+            .el-menu-demo {
+                float: right;
+            }
+            .el-menu--horizontal > .el-menu-item {
+                height: 50px;
+                line-height: 50px;
+                font-size: 20px;
+                &:hover {
+                    background: transparent !important;
+                }
+            }
+            .el-menu.el-menu--horizontal {
+                border-bottom: 0;
+            }
+        }
+        .mag_top_bg {
+            position: relative;
+            vertical-align: middle;
+            width: 100%;
+            height: 400px;
+            text-align: center;
+            .mag_center_info {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                .mag_bg_title {
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    font-size: 32px;
+                }
+                .mag_link_txt {
+                    cursor: pointer;
+                    color: #409eff;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .mag_main_content {
+        width: 100%;
+        min-height: 500px;
+        background: azure;
+        text-align: center;
+        .mag_content_box {
+            padding: 50px 0;
+            .mag_title {
+                display: inline-block;
+                margin-bottom: 40px;
+                font-size: 28px;
+            }
+        }
+        .mag_top_content {
+            margin: 0 auto;
+            .grid-content {
+                height: 250px;
+                overflow: hidden;
+                text-align: left;
+                color: #333;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .mag_big_title {
+                    line-height: 44px;
+                    font-size: 22px;
+                }
+                .mag_small_title {
+                    line-height: 48px;
+                    font-size: 16px;
+                }
+                .mag_info_txt {
+                    line-height: 18px;
+                    font-size: 12px;
+                }
+            }
+            .pl30 {
+                padding-left: 30px;
+            }
+            .pr30 {
+                padding-right: 30px;
+            }
+            .pt40 {
+                padding-top: 40px;
+            }
+        }
+        .mag_bottom_content {
+            background: rgba(0, 0, 255, 0.05);
+            text-align: center;
+            .mag_real_content {
+                margin: 0 auto;
+                .mag_intro_item {
+                    img {
+                        width: 90px;
+                        height: 90px;
+                        border-radius: 45px;
+                    }
+                    .mag_item_title {
+                        line-height: 52px;
+                        font-size: 22px;
+                    }
+                    .mag_item_intro {
+                        line-height: 18px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .mag_footer_box {
+        width: 100%;
+        padding: 50px 0;
+        background: #000;
+        .mag_footer_content {
+            width: 50%;
+            margin: 0 auto;
+            .mag_title_icon {
+                display: block;
+                width: 150px;
+                height: 60px;
+                margin: 0 auto 40px auto;
+            }
+            .mag_footer_info {
+                overflow: hidden;
+                .mag_left_box {
+                    float: left;
+                    width: 70%;
+                    line-height: 30px;
+                    color: #fff;
+                    text-align: left;
+                    padding-right: 10px;
+                    p {
+                        max-width: 100%;
+                        word-break: break-all;
+                    }
+                    .mag_btn {
+                        width: 106px;
+                        height: 32px;
+                        margin-top: 10px;
+                        background: transparent;
+                        color: #fff;
+                    }
+                }
+                .mag_right_box {
+                    float: right;
+                    width: 30%;
+                    min-height: 160px;
+                }
+            }
+        }
+    }
+}
+</style>
